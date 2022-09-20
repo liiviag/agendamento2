@@ -12,14 +12,27 @@ public class PlanoDeSaude {
 	public void setOperadora (String operadora) {
 		this.operadora = operadora;
 	}
+	public String getOperadora() {
+		return this.operadora;
+	}
 	public void setCategoria (String categoria) {
 		this.categoria = categoria;
+	}
+	public String getCategoria() {
+		return this.categoria;
 	}
 	public void setNumero (String numero) {
 		this.numero = numero;
 	}
+	public String getNumero() {
+		return this.numero;
+	}
 	public void setValidade (LocalDate validade) {
 		this.validade = validade;
 	}
+	public LocalDate getValidade() {
+		return this.validade;
+	}
+	
 }
 
