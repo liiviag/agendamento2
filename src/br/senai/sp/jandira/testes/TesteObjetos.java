@@ -6,6 +6,7 @@ import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 import br.senai.sp.jandira.AgendaApp;
+import br.senai.sp.jandira.dao.EspecialidadeDAO;
 import br.senai.sp.jandira.model.Especialidade;
 import br.senai.sp.jandira.model.PlanoDeSaude;
 
@@ -21,15 +22,40 @@ public class TesteObjetos {
         //e2.setNome("Gatroenterologia");
         e2.setDescricao("Não deixa ficar com dor de barriga");
 
-        Especialidade e4 = new Especialidade("Otorrino", "Cuida do Ouvido");
+        Especialidade e3 = new Especialidade("Otorrino", "Cuida do Ouvido");
 
-        Especialidade e3 = new Especialidade();
-        e3.setNome("QUALQUER COISA!!");
+        Especialidade e4 = new Especialidade();
+        e4.setNome("QUALQUER COISA!!");
+        e4.setDescricao("Parte da medicina que estuda as partes da pele!");
         
         Especialidade e5 = new Especialidade();
         e5.setNome("Especialidade 5");
         
-
+        EspecialidadeDAO.gravar(e1);
+        EspecialidadeDAO.gravar(e2);
+        
+        System.out.println("TAMANHO ------>" + EspecialidadeDAO.getEspecialidades().size());
+        
+        
+        EspecialidadeDAO.gravar(e3);
+        EspecialidadeDAO.gravar(e4);
+        System.out.println("TAMANHO ------>" + EspecialidadeDAO.getEspecialidades().size());
+         System.out.println("TAMANHO ------>" + EspecialidadeDAO.getEspecialidades().size());
+        
+         System.out.println(EspecialidadeDAO.getEspecialidade(100).getNome());
+         
+         EspecialidadeDAO.excluir(102);
+         System.out.println("TAMANHO --------> " + EspecialidadeDAO.getEspecialidades().size());
+         
+         System.out.println(EspecialidadeDAO.getEspecialidade(103).getNome());
+         
+         Especialidade correta =  new Especialidade("Dermatologista", "Parte da medicina que estuda as partes do rosto");
+         //e4.setNome("Dermatologia");
+        correta.setCodigo(103);
+         EspecialidadeDAO.atualizar(correta);
+         
+         System.out.println(EspecialidadeDAO.getEspecialidade(103).getNome());
+         
         //Exibir a quantidade de especialidades criadas até agora
         
         System.out.println("Total de Especialidades ------> " + e1.getContador());
