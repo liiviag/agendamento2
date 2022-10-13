@@ -32,13 +32,13 @@ public class HomeFrame extends javax.swing.JFrame {
         buttonPlanoSaude = new javax.swing.JButton();
         buttonSairEspecialidades = new javax.swing.JButton();
         panelHome = new javax.swing.JPanel();
-        separatorEspecialidades = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        separatorEspecialidades1 = new javax.swing.JSeparator();
         buttonHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,14 +133,12 @@ public class HomeFrame extends javax.swing.JFrame {
         buttonSairEspecialidades.setForeground(new java.awt.Color(255, 255, 255));
         buttonSairEspecialidades.setText("SAIR");
         getContentPane().add(buttonSairEspecialidades);
-        buttonSairEspecialidades.setBounds(850, 130, 60, 40);
+        buttonSairEspecialidades.setBounds(840, 130, 70, 40);
 
         panelHome.setBackground(new java.awt.Color(204, 204, 204));
         panelHome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelHome.setForeground(new java.awt.Color(255, 255, 255));
         panelHome.setLayout(null);
-        panelHome.add(separatorEspecialidades);
-        separatorEspecialidades.setBounds(140, 20, 640, 10);
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 102));
@@ -152,7 +150,7 @@ public class HomeFrame extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Sistema de Agendamento de Consultas");
         panelHome.add(jLabel3);
-        jLabel3.setBounds(60, 70, 460, 16);
+        jLabel3.setBounds(50, 70, 460, 30);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 153, 102));
@@ -178,6 +176,8 @@ public class HomeFrame extends javax.swing.JFrame {
         jLabel7.setText("www.sisacon.com.br");
         panelHome.add(jLabel7);
         jLabel7.setBounds(630, 230, 120, 16);
+        panelHome.add(separatorEspecialidades1);
+        separatorEspecialidades1.setBounds(30, 100, 750, 10);
 
         getContentPane().add(panelHome);
         panelHome.setBounds(50, 200, 800, 330);
@@ -247,7 +247,7 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelSistemaAgendas;
     private javax.swing.JPanel panelHome;
-    private javax.swing.JSeparator separatorEspecialidades;
+    private javax.swing.JSeparator separatorEspecialidades1;
     // End of variables declaration//GEN-END:variables
 
     private void initPanels() {
