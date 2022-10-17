@@ -24,6 +24,9 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
     
     private void preencherFormulario() {
     
+        
+       labelTitulo.setText("Especialidade - EDITAR");
+       labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/escrevendo.png")));
        jTextFieldCodigo.setText(especialidade.getCodigo().toString());
        jTextFieldNomeEspec.setText(especialidade.getNome());
        jTextFieldDescricao.setText(especialidade.getDescricao());
@@ -42,7 +45,7 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanelAdicionar = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        labelTitulo = new javax.swing.JLabel();
         jPanelDetalhesEspec = new javax.swing.JPanel();
         jLabelDescricao = new javax.swing.JLabel();
         jTextFieldDescricao = new javax.swing.JTextField();
@@ -59,12 +62,12 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
         jPanelAdicionar.setBackground(new java.awt.Color(255, 204, 102));
         jPanelAdicionar.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/escrevendo.png"))); // NOI18N
-        jLabel1.setText("     Especialidades - ADICIONAR");
-        jPanelAdicionar.add(jLabel1);
-        jLabel1.setBounds(130, 10, 380, 40);
+        labelTitulo.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        labelTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/escrevendo.png"))); // NOI18N
+        labelTitulo.setText("     Especialidades - ADICIONAR");
+        jPanelAdicionar.add(labelTitulo);
+        labelTitulo.setBounds(130, 10, 380, 40);
 
         getContentPane().add(jPanelAdicionar);
         jPanelAdicionar.setBounds(0, 0, 690, 60);
@@ -230,7 +233,6 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonExclur;
     private javax.swing.JButton jButtonSalvar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelNomeEspec;
@@ -239,5 +241,6 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldDescricao;
     private javax.swing.JTextField jTextFieldNomeEspec;
+    private javax.swing.JLabel labelTitulo;
     // End of variables declaration//GEN-END:variables
 }
