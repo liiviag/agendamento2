@@ -74,7 +74,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonMedico);
-        buttonMedico.setBounds(280, 130, 111, 40);
+        buttonMedico.setBounds(290, 130, 120, 40);
 
         buttonAgenda.setBackground(new java.awt.Color(102, 102, 102));
         buttonAgenda.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -100,7 +100,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEspecialidades);
-        buttonEspecialidades.setBounds(400, 130, 148, 40);
+        buttonEspecialidades.setBounds(420, 130, 160, 40);
 
         buttonPaciente.setBackground(new java.awt.Color(102, 102, 102));
         buttonPaciente.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -113,7 +113,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonPaciente);
-        buttonPaciente.setBounds(160, 130, 111, 40);
+        buttonPaciente.setBounds(160, 130, 120, 40);
 
         buttonPlanoSaude.setBackground(new java.awt.Color(102, 102, 102));
         buttonPlanoSaude.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -126,7 +126,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonPlanoSaude);
-        buttonPlanoSaude.setBounds(560, 130, 154, 40);
+        buttonPlanoSaude.setBounds(590, 130, 170, 40);
 
         buttonSairEspecialidades.setBackground(new java.awt.Color(255, 0, 0));
         buttonSairEspecialidades.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
