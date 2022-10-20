@@ -3,6 +3,7 @@ package br.senai.sp.jandira.ui;
 
 import br.senai.sp.jandira.dao.EspecialidadeDAO;
 import br.senai.sp.jandira.model.Especialidade;
+import br.senai.sp.jandira.model.OperacaoEnum;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -28,8 +29,8 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonAdicionar = new javax.swing.JButton();
         buttonAtualizar = new javax.swing.JButton();
-        buttonEditar = new javax.swing.JButton();
         buttonExcluir = new javax.swing.JButton();
         scroolEspecilidades = new javax.swing.JScrollPane();
         tableEspecialidades = new javax.swing.JTable();
@@ -38,25 +39,25 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 330));
         setLayout(null);
 
+        buttonAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/escrevendo.png"))); // NOI18N
+        buttonAdicionar.setToolTipText("Atualizar");
+        buttonAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAdicionarActionPerformed(evt);
+            }
+        });
+        add(buttonAdicionar);
+        buttonAdicionar.setBounds(610, 250, 70, 70);
+
         buttonAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/atualizar (1).png"))); // NOI18N
-        buttonAtualizar.setToolTipText("Atualizar");
+        buttonAtualizar.setToolTipText("Editar");
         buttonAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAtualizarActionPerformed(evt);
             }
         });
         add(buttonAtualizar);
-        buttonAtualizar.setBounds(610, 250, 70, 70);
-
-        buttonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/escrevendo.png"))); // NOI18N
-        buttonEditar.setToolTipText("Editar");
-        buttonEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditarActionPerformed(evt);
-            }
-        });
-        add(buttonEditar);
-        buttonEditar.setBounds(690, 250, 70, 70);
+        buttonAtualizar.setBounds(690, 250, 70, 70);
 
         buttonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/lixeira-de-reciclagem.png"))); // NOI18N
         buttonExcluir.setToolTipText("Apagar");
@@ -98,7 +99,7 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buttonExcluirActionPerformed
 
-    private void buttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarActionPerformed
+    private void buttonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtualizarActionPerformed
   
        if(getLinha() != -1) {
            editarEspecialidade();
@@ -109,7 +110,7 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
                    JOptionPane.WARNING_MESSAGE);
        }
     
-    }//GEN-LAST:event_buttonEditarActionPerformed
+    }//GEN-LAST:event_buttonAtualizarActionPerformed
 
     
     
@@ -119,7 +120,7 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
        Especialidade especialidade = EspecialidadeDAO.getEspecialidade(getCodigo());
         
         EspecialidadeDialog especialidadeDialog =
-                new EspecialidadeDialog(null, true, especialidade);
+                new EspecialidadeDialog(null, true, especialidade,OperacaoEnum.EDITAR);
         
         especialidadeDialog.setVisible(true);
         preencherTabela();
@@ -152,19 +153,19 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
     
     }
     
-    private void buttonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtualizarActionPerformed
+    private void buttonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarActionPerformed
        
         EspecialidadeDialog especialidadeDialog =  
-                new EspecialidadeDialog(null, true);
+                new EspecialidadeDialog(null, true, OperacaoEnum.ADICIONAR);
        
        especialidadeDialog.setVisible(true);
        preencherTabela();
-    }//GEN-LAST:event_buttonAtualizarActionPerformed
+    }//GEN-LAST:event_buttonAdicionarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAdicionar;
     private javax.swing.JButton buttonAtualizar;
-    private javax.swing.JButton buttonEditar;
     private javax.swing.JButton buttonExcluir;
     private javax.swing.JScrollPane scroolEspecilidades;
     private javax.swing.JTable tableEspecialidades;

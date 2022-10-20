@@ -15,8 +15,10 @@ public class PlanoDeSaude {
 		this.quantidade++;
 	}
 	
-	public PlanoDeSaude () {
-		this.quantidade++;
+	public PlanoDeSaude (String operadora, String categoria) {
+            this.operadora = operadora;
+            this.categoria = categoria;
+            this.quantidade++;
 	}
 	
 	public void setOperadora (String operadora) {
