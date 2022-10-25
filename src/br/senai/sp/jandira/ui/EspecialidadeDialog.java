@@ -92,7 +92,7 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
         labelTitulo.setBounds(130, 10, 380, 40);
 
         getContentPane().add(jPanelAdicionar);
-        jPanelAdicionar.setBounds(0, 0, 690, 60);
+        jPanelAdicionar.setBounds(0, 0, 680, 60);
 
         jPanelDetalhesEspec.setBackground(new java.awt.Color(204, 204, 204));
         jPanelDetalhesEspec.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalhes da Especialidade", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 0, 14), new java.awt.Color(102, 102, 102))); // NOI18N
@@ -105,7 +105,6 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
         jPanelDetalhesEspec.add(jLabelDescricao);
         jLabelDescricao.setBounds(50, 210, 260, 20);
 
-        jTextFieldDescricao.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDescricaoActionPerformed(evt);
@@ -138,7 +137,6 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
         jPanelDetalhesEspec.add(jLabelNomeEspec);
         jLabelNomeEspec.setBounds(50, 140, 250, 20);
 
-        jTextFieldNomeEspec.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNomeEspec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeEspecActionPerformed(evt);

@@ -136,9 +136,9 @@ public class TesteObjetos {
             System.out.println(e.getQuantidade());
         }
 
-        PlanoDeSaude xpto = new PlanoDeSaude();
-        PlanoDeSaude xpto1 = new PlanoDeSaude();
-        PlanoDeSaude xpto2 = new PlanoDeSaude();
+        //PlanoDeSaude xpto = new PlanoDeSaude();
+        //PlanoDeSaude xpto1 = new PlanoDeSaude();
+        //PlanoDeSaude xpto2 = new PlanoDeSaude();
 
         System.out.println("--------" + PlanoDeSaude.getQuantidade());
 

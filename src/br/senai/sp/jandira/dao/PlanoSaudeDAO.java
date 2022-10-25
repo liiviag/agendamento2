@@ -50,7 +50,7 @@ public class PlanoSaudeDAO {
    //Criando planos de saúde
    public static void criarListaDePlano() {
        PlanoDeSaude p1 = new PlanoDeSaude("Amil", "Premium");
-       PlanoDeSaude p2 = new PlanoDeSaude("Amil", "Premium");
+       PlanoDeSaude p2 = new PlanoDeSaude("Notredame", "Premium");
        
        planos.add(p1);
        planos.add(p2);
