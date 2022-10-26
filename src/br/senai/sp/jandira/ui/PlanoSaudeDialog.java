@@ -5,7 +5,9 @@ import br.senai.sp.jandira.dao.PlanoSaudeDAO;
 import br.senai.sp.jandira.model.OperacaoEnum;
 import br.senai.sp.jandira.model.PlanoDeSaude;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 public class PlanoSaudeDialog extends javax.swing.JDialog {
@@ -45,7 +47,7 @@ public class PlanoSaudeDialog extends javax.swing.JDialog {
 
     private void preencherFormulario() {
    
-       jTextFieldCategoria.setText(planos.getCategoria());
+       jTextFieldOperadora.setText(planos.getCategoria());
        jTextFieldNumero.setText(planos.getNumero());
        jTextFieldOperadora.setText(planos.getOperadora());
        jTextFieldValidade.setText(planos.getValidade().toString());
@@ -74,10 +76,10 @@ public class PlanoSaudeDialog extends javax.swing.JDialog {
         jTextFieldNumero = new javax.swing.JTextField();
         jLabelOperadora = new javax.swing.JLabel();
         jTextFieldOperadora = new javax.swing.JTextField();
-        jLabelCategoria = new javax.swing.JLabel();
-        jTextFieldCategoria = new javax.swing.JTextField();
         jButtonSalvar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
+        jLabelCategoria = new javax.swing.JLabel();
+        jTextFieldCategoria = new javax.swing.JTextField();
         jLabelValidade = new javax.swing.JLabel();
         jTextFieldValidade = new javax.swing.JTextField();
         jPanelAdicionar = new javax.swing.JPanel();
@@ -105,37 +107,20 @@ public class PlanoSaudeDialog extends javax.swing.JDialog {
         jPanelDetalhesPlano.add(jTextFieldNumero);
         jTextFieldNumero.setBounds(50, 210, 300, 20);
 
-        jLabelOperadora.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelOperadora.setBackground(new java.awt.Color(0, 0, 0));
         jLabelOperadora.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelOperadora.setForeground(new java.awt.Color(102, 102, 102));
         jLabelOperadora.setText("Operadora");
         jPanelDetalhesPlano.add(jLabelOperadora);
-        jLabelOperadora.setBounds(50, 70, 130, 20);
+        jLabelOperadora.setBounds(50, 70, 250, 20);
 
-        jTextFieldOperadora.setEditable(false);
-        jTextFieldOperadora.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldOperadora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldOperadoraActionPerformed(evt);
             }
         });
         jPanelDetalhesPlano.add(jTextFieldOperadora);
-        jTextFieldOperadora.setBounds(50, 90, 110, 22);
-
-        jLabelCategoria.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelCategoria.setForeground(new java.awt.Color(102, 102, 102));
-        jLabelCategoria.setText("Categoria");
-        jPanelDetalhesPlano.add(jLabelCategoria);
-        jLabelCategoria.setBounds(50, 130, 250, 20);
-
-        jTextFieldCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCategoriaActionPerformed(evt);
-            }
-        });
-        jPanelDetalhesPlano.add(jTextFieldCategoria);
-        jTextFieldCategoria.setBounds(50, 150, 300, 22);
+        jTextFieldOperadora.setBounds(50, 90, 300, 22);
 
         jButtonSalvar.setBackground(new java.awt.Color(255, 255, 102));
         jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/salvar-arquivo.png"))); // NOI18N
@@ -160,22 +145,35 @@ public class PlanoSaudeDialog extends javax.swing.JDialog {
         jPanelDetalhesPlano.add(jButtonExcluir);
         jButtonExcluir.setBounds(450, 270, 40, 40);
 
-        jLabelValidade.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelCategoria.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelCategoria.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelCategoria.setText("Categoria");
+        jPanelDetalhesPlano.add(jLabelCategoria);
+        jLabelCategoria.setBounds(50, 130, 250, 20);
+
+        jTextFieldCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCategoriaActionPerformed(evt);
+            }
+        });
+        jPanelDetalhesPlano.add(jTextFieldCategoria);
+        jTextFieldCategoria.setBounds(50, 150, 300, 22);
+
+        jLabelValidade.setBackground(new java.awt.Color(0, 0, 0));
         jLabelValidade.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelValidade.setForeground(new java.awt.Color(102, 102, 102));
         jLabelValidade.setText("Validade");
         jPanelDetalhesPlano.add(jLabelValidade);
-        jLabelValidade.setBounds(50, 250, 130, 20);
+        jLabelValidade.setBounds(50, 250, 250, 20);
 
-        jTextFieldValidade.setEditable(false);
-        jTextFieldValidade.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldValidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldValidadeActionPerformed(evt);
             }
         });
         jPanelDetalhesPlano.add(jTextFieldValidade);
-        jTextFieldValidade.setBounds(50, 270, 180, 22);
+        jTextFieldValidade.setBounds(50, 270, 300, 22);
 
         getContentPane().add(jPanelDetalhesPlano);
         jPanelDetalhesPlano.setBounds(40, 80, 600, 340);
@@ -193,7 +191,7 @@ public class PlanoSaudeDialog extends javax.swing.JDialog {
         getContentPane().add(jPanelAdicionar);
         jPanelAdicionar.setBounds(0, 0, 680, 60);
 
-        pack();
+        setBounds(0, 0, 694, 484);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroActionPerformed
@@ -204,10 +202,6 @@ public class PlanoSaudeDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldOperadoraActionPerformed
 
-    private void jTextFieldCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCategoriaActionPerformed
-
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
 
         if(operacao == OperacaoEnum.ADICIONAR) {
@@ -217,38 +211,52 @@ public class PlanoSaudeDialog extends javax.swing.JDialog {
         }
     }
           private void editar () {
+            
+            String data = jLabelValidade.getText();
+            LocalDate ld = LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
               
-        planos.setCategoria(jTextFieldCategoria.getText());
-        planos.setNumero(jTextFieldNumero.getText());
-        planos.setOperadora(jTextFieldOperadora.getText());
-        planos.setValidade(LocalDate.of(ERROR, Month.MARCH, ABORT));
+            planos.setCategoria(jTextFieldOperadora.getText());
+            planos.setNumero(jTextFieldNumero.getText());
+            planos.setOperadora(jTextFieldOperadora.getText());
+            
         
-        PlanoSaudeDAO.atualizar(planos);
+            PlanoSaudeDAO.atualizar(planos);
         
-        JOptionPane.showMessageDialog(null, 
+            JOptionPane.showMessageDialog(null, 
                 "O Plano de Saúde foi ATUALIZADO com Sucesso!!", 
                 "Planos",
                 JOptionPane.INFORMATION_MESSAGE);
-        dispose();    
+             dispose();    
     }//GEN-LAST:event_jButtonSalvarActionPerformed
          
          private void adicionar() {
              
-             PlanoDeSaude novoPlano = new PlanoDeSaude();
-             novoPlano.setCategoria(jTextFieldCategoria.getText());
-             novoPlano.setOperadora(jTextFieldOperadora.getText());
+            PlanoDeSaude planoDeSaude = new PlanoDeSaude();
+            String data = jLabelValidade.getText();
+            LocalDate ld = LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+              
+            planos.setCategoria(jTextFieldOperadora.getText());
+            planos.setNumero(jTextFieldNumero.getText());
+            planos.setOperadora(jTextFieldOperadora.getText());
              
-             PlanoSaudeDAO.adicionar(novoPlano);
+             PlanoSaudeDAO.adicionar(planos);
              
              JOptionPane.showMessageDialog(this, 
                      "Plano de Saúde gravado com SUCESSO!", 
                      "Plano de Saúde", 
                      JOptionPane.INFORMATION_MESSAGE);
+             
+             dispose();
          }
+         
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         dispose();
     }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jTextFieldCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCategoriaActionPerformed
 
     private void jTextFieldValidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValidadeActionPerformed
         // TODO add your handling code here:

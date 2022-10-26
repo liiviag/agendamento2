@@ -3,6 +3,8 @@ package br.senai.sp.jandira.ui;
 
 import br.senai.sp.jandira.dao.PlanoSaudeDAO;
 import br.senai.sp.jandira.model.OperacaoEnum;
+import br.senai.sp.jandira.model.PlanoDeSaude;
+import java.lang.management.ManagementFactory;
 import javax.swing.JOptionPane;
 
 public class PlanoSaudePanel extends javax.swing.JPanel {
@@ -119,7 +121,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
     private void buttonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtualizarActionPerformed
 
         if(getLinha() != -1) {
-            editarPlano();
+            atualizarPlano();
         } else {
             JOptionPane.showConfirmDialog(this,
                 "Por Favor, selecione o que você deseja editar!",
@@ -142,7 +144,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonExcluirActionPerformed
 
       
-    //Excluir Especialidade
+    //Excluir Plano
     
     private void excluirPlano() {
     
@@ -155,11 +157,35 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
     
     if(resposta == 0) {
        
-        PlanoSaudeDAO.excluir();
+        PlanoSaudeDAO.excluir(getCodigo());
         preencherTabela(); 
      }
+    }
+ 
+     //Método Código
     
-    private void preencherTabela() {
+    private Integer getCodigo(){
+        
+    String codigoStr = tablePlanos.getValueAt(getLinha(), 0).toString();
+    Integer codigo = Integer.valueOf(codigoStr);
+    return codigo;
+    
+    }
+    //Editar Especialidades
+    
+    private void atualizarPlano () {
+        PlanoDeSaude planos = PlanoSaudeDAO.getPlanoDeSaude(getCodigo());
+        
+        PlanoSaudeDialog planoSaudeDialog =
+                new PlanoSaudeDialog(null, true, planos,OperacaoEnum.EDITAR);
+        
+        planoSaudeDialog.setVisible(true);
+        preencherTabela();
+    }
+    
+    //Método Operadora
+    
+      private void preencherTabela() {
  
        tablePlanos.setModel(PlanoSaudeDAO.getPlanoDeSaudeModel());
        ajustarTabela();

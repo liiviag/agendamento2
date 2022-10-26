@@ -17,7 +17,9 @@ public class HomeFrame extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/senai/sp/jandira/img/entrega-agendada.png")));
         initPanels();
     }
-
+    
+    private PlanoSaudePanel planosPanel;
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -210,6 +212,8 @@ public class HomeFrame extends javax.swing.JFrame {
          panelHome.setVisible(false);
          especialidadesPanel.setVisible(true);
          
+         
+         
     }//GEN-LAST:event_buttonEspecialidadesActionPerformed
 
     private void buttonPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPacienteActionPerformed
@@ -217,7 +221,8 @@ public class HomeFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPacienteActionPerformed
 
     private void buttonPlanoSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlanoSaudeActionPerformed
-        // TODO add your handling code here:
+        panelHome.setVisible(false);
+        planosPanel.setVisible(true);
     }//GEN-LAST:event_buttonPlanoSaudeActionPerformed
 
     private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
@@ -225,6 +230,7 @@ public class HomeFrame extends javax.swing.JFrame {
         buttonHome.setBackground(new java.awt.Color(246, 246, 246));
         panelHome.setVisible(true);
         especialidadesPanel.setVisible(false);
+        planosPanel.setVisible(false);
     }//GEN-LAST:event_buttonHomeActionPerformed
 
   
@@ -257,9 +263,13 @@ public class HomeFrame extends javax.swing.JFrame {
         getContentPane().add(especialidadesPanel);
         especialidadesPanel.setVisible(false);
         
-        
+        planosPanel = new PlanoSaudePanel();
+        planosPanel.setBounds(POS_X, POS_Y, LARGURA, ALTURA);
+        getContentPane().add(planosPanel);
+        planosPanel.setVisible(false);
     }
     
+   
     
     
 

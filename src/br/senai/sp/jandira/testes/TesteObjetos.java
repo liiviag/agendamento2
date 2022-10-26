@@ -59,7 +59,7 @@ public class TesteObjetos {
         EspecialidadeDAO.gravar(e1);
         EspecialidadeDAO.gravar(e2);
         
-        System.out.println("TAMANHO ------>" + EspecialidadeDAO.getEspecialidades().size());
+       // System.out.println("TAMANHO ------>" + EspecialidadeDAO.getEspecialidades().size());
         
         
         EspecialidadeDAO.gravar(e3);
@@ -67,19 +67,19 @@ public class TesteObjetos {
         System.out.println("TAMANHO ------>" + EspecialidadeDAO.getEspecialidades().size());
          System.out.println("TAMANHO ------>" + EspecialidadeDAO.getEspecialidades().size());
         
-         System.out.println(EspecialidadeDAO.getEspecialidade(100).getNome());
+       //  System.out.println(EspecialidadeDAO.getEspecialidade(100).getNome());
          
          EspecialidadeDAO.excluir(102);
          System.out.println("TAMANHO --------> " + EspecialidadeDAO.getEspecialidades().size());
          
-         System.out.println(EspecialidadeDAO.getEspecialidade(103).getNome());
+//         System.out.println(EspecialidadeDAO.getEspecialidade(103).getNome());
          
          Especialidade correta =  new Especialidade("Dermatologista", "Parte da medicina que estuda as partes do rosto");
          //e4.setNome("Dermatologia");
         correta.setCodigo(103);
          EspecialidadeDAO.atualizar(correta);
          
-         System.out.println(EspecialidadeDAO.getEspecialidade(103).getNome());
+        // System.out.println(EspecialidadeDAO.getEspecialidade(103).getNome());
          
         //Exibir a quantidade de especialidades criadas até agora
         
@@ -121,30 +121,30 @@ public class TesteObjetos {
         // Criar 3 planos de saúde, armazenar em um ArrayList
         // e exibir o nome de cada operadora de cada um deles
         // usando FOR EACH
-        PlanoDeSaude p1 = new PlanoDeSaude("Amil");
-        PlanoDeSaude p2 = new PlanoDeSaude("Bradesco");
-        PlanoDeSaude p3 = new PlanoDeSaude("Notredame");
+       // PlanoDeSaude p1 = new PlanoDeSaude("Amil");
+       //PlanoDeSaude p2 = new PlanoDeSaude("Bradesco");
+      //PlanoDeSaude p3 = new PlanoDeSaude("Notredame");
 
-        ArrayList<PlanoDeSaude> planos = new ArrayList<>();
-        planos.add(p1);
-        planos.add(p2);
-        planos.add(p3);
-
-        System.out.println("-------- for each planos ----------");
-        for (PlanoDeSaude e: planos) {
-            System.out.println(e.getOperadora());
-            System.out.println(e.getQuantidade());
-        }
+//        ArrayList<PlanoDeSaude> planos = new ArrayList<>();
+//        planos.add(p1);
+//        planos.add(p2);
+//        planos.add(p3);
+//
+//        System.out.println("-------- for each planos ----------");
+//        for (PlanoDeSaude e: planos) {
+//            System.out.println(e.getOperadora());
+//           // System.out.println(e.getQuantidade());
+//        }
 
         //PlanoDeSaude xpto = new PlanoDeSaude();
         //PlanoDeSaude xpto1 = new PlanoDeSaude();
         //PlanoDeSaude xpto2 = new PlanoDeSaude();
 
-        System.out.println("--------" + PlanoDeSaude.getQuantidade());
+//        System.out.println("--------" + PlanoDeSaude.getQuantidade());
 
         AgendaApp.main(args);
 
-        System.out.println("--------" + PlanoDeSaude.getQuantidade());
+      //  System.out.println("--------" + PlanoDeSaude.getQuantidade());
 
     }
 

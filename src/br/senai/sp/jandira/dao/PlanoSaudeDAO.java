@@ -1,6 +1,8 @@
 package br.senai.sp.jandira.dao;
 
 import br.senai.sp.jandira.model.PlanoDeSaude;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -14,23 +16,24 @@ public class PlanoSaudeDAO {
        return planos;
    }
    
-   public static PlanoDeSaude getPlanoDeSaude(String operadora) {
+   public static PlanoDeSaude getPlanoDeSaude(Integer codigo) {
        for(PlanoDeSaude e : planos) {
-           if(operadora == e.getOperadora()) {
+           if(e.getCodigo() == codigo) {
                return e;
            }
        }
        return null;
    }
+   
    //gravar um plano de saúde
    public static void adicionar(PlanoDeSaude e) {
        planos.add(e);
    }
   
    //excluir uma operadora
-   public static void excluir(String operadora) {
+   public static void excluir(Integer codigo) {
        for(PlanoDeSaude e : planos) {
-           if(operadora == e.getOperadora()) {
+           if(codigo == e.getCodigo()) {
                planos.remove(e);
                break;
            }
@@ -49,11 +52,10 @@ public class PlanoSaudeDAO {
 
    //Criando planos de saúde
    public static void criarListaDePlano() {
-       PlanoDeSaude p1 = new PlanoDeSaude("Amil", "Premium");
-       PlanoDeSaude p2 = new PlanoDeSaude("Notredame", "Premium");
+       PlanoDeSaude p1 = new PlanoDeSaude("Amil", "Premium", "158742", LocalDate.of(2005, 5, 1));
        
        planos.add(p1);
-       planos.add(p2);
+       
        
    }
    
@@ -63,7 +65,7 @@ public class PlanoSaudeDAO {
        
        String[] titulos = {"Operadora", "Categoria", "Numero", "Validade"};
        
-       String[][] dados = new String [planos.size()][3];
+       String[][] dados = new String [planos.size()][4];
        
        int i = 0;
        for (PlanoDeSaude e : planos) {
