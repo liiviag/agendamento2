@@ -6,6 +6,7 @@ import br.senai.sp.jandira.model.OperacaoEnum;
 import br.senai.sp.jandira.model.PlanoDeSaude;
 import java.lang.management.ManagementFactory;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 public class PlanoSaudePanel extends javax.swing.JPanel {
 
@@ -136,14 +137,15 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
         if (getLinha() != -1) {
             excluirPlano();
         }else {
-            JOptionPane.showMessageDialog(this, "Por Favor, selecione o "
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "Por Favor, selecione o "
                 + "plano que você deseja excluir!",
                 "EXCLUIR", JOptionPane.OK_OPTION);
 
         }
-    }//GEN-LAST:event_buttonExcluirActionPerformed
-
-      
+    }
+        
     //Excluir Plano
     
     private void excluirPlano() {
@@ -160,6 +162,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
         PlanoSaudeDAO.excluir(getCodigo());
         preencherTabela(); 
      }
+    
     }
  
      //Método Código
@@ -170,7 +173,9 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
     Integer codigo = Integer.valueOf(codigoStr);
     return codigo;
     
-    }
+    }//GEN-LAST:event_buttonExcluirActionPerformed
+
+      
     //Editar Especialidades
     
     private void atualizarPlano () {
@@ -198,6 +203,14 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
         
         //Bloquaer as ediçoes das células da tabela
         tablePlanos.setDefaultEditor(Object.class, null);
+        
+        //Tamanho das colunas
+        tablePlanos.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        tablePlanos.getColumnModel().getColumn(0).setPreferredWidth(80);
+        tablePlanos.getColumnModel().getColumn(1).setPreferredWidth(160);
+        tablePlanos.getColumnModel().getColumn(2).setPreferredWidth(160);
+        tablePlanos.getColumnModel().getColumn(3).setPreferredWidth(160);
+        tablePlanos.getColumnModel().getColumn(4).setPreferredWidth(160);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

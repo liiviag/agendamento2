@@ -20,7 +20,14 @@ public class Especialidade {
         this.descricao = descricao;
         gerarCodigo();
     }
-
+    //somente no contador, que for executar o arquivo
+    public Especialidade(String nome, String descricao, Integer codigo) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.codigo = codigo;
+        this.contador = codigo;
+    }
+    
     public Especialidade() { //Construtor Default / Padrão 
         gerarCodigo();
     }
@@ -71,6 +78,10 @@ public class Especialidade {
 
     public String getDescricao() {
         return this.descricao;
+    }
+    
+    public String getEspecialidadeSeparadaPorPontoEVirgula() {
+        return this.codigo + ";" + this.nome + ";" + this.descricao;
     }
 
 }
