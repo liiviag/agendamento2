@@ -20,7 +20,9 @@ import javax.swing.text.DateFormatter;
 public class PlanoSaudeDAO {
     
     private final static String URL = "C:\\Users\\22282168\\txt-agendamento\\PlanoSaude.txt";
+    private final static String URL_TEMP = "C:\\Users\\22282168\\txt-agendamento\\PlanoSaude-temp.txt";
     private final static Path PATH = Paths.get(URL);
+    private final static Path PATH_TEMP = Paths.get(URL_TEMP);
     
    private static ArrayList<PlanoDeSaude> planos = new ArrayList<>();
    public static TableModel getPlanoDeSaudeModel;
