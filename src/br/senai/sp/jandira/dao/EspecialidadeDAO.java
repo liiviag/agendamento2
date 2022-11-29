@@ -47,7 +47,7 @@ public class EspecialidadeDAO {
         }
 
     }
-    public static ArrayList<Especialidade> getEspecialidadess() { // READ
+    public static ArrayList<Especialidade> getEspecialidades() { // READ
         return especialidades;
     }
 

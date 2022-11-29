@@ -3,6 +3,7 @@ package br.senai.sp.jandira.dao;
 import br.senai.sp.jandira.model.PlanoDeSaude;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -33,7 +34,7 @@ public class PlanoSaudeDAO {
    
    public static PlanoDeSaude getPlanoDeSaude(Integer codigo) {
        for(PlanoDeSaude e : planos) {
-           if(e.getCodigo() == codigo) {
+           if(e.getCodigo().equals(codigo)) {
                return e;
            }
        }
@@ -64,21 +65,61 @@ public class PlanoSaudeDAO {
    //excluir uma operadora
    public static void excluir(Integer codigo) {
        for(PlanoDeSaude e : planos) {
-           if(codigo == e.getCodigo()) {
+           if(e.getCodigo().equals(codigo)) {
                planos.remove(e);
                break;
            }
        }  
+       
+       atualizarArquivo();
    }
    
+    private static void atualizarArquivo() {
+
+        //Passo 01 - Criar uma representação de arquivos que serão manipulados
+        File arquivoAtual = new File(URL);
+        File arquivoTemp = new File(URL_TEMP);
+
+        
+        try {
+
+            // Criar arquivo temporario
+            arquivoTemp.createNewFile();
+
+            // Abrir o arquivo temporário para escrita
+            BufferedWriter bwTemp = Files.newBufferedWriter(PATH_TEMP,
+                    StandardOpenOption.APPEND,
+                    StandardOpenOption.WRITE);
+
+            // Iterar na lista para adicionar as especialidades
+            //no arquivo temporário, exceto o registro que 
+            //não queremos mais
+            
+            for(PlanoDeSaude e : planos) {
+                bwTemp.write(e.getPlanoDeSaudeSeparadaPorPontoEVirgula());
+                bwTemp.newLine();
+            }
+            bwTemp.close();
+            
+            //Excluir o arquivo atual
+            arquivoAtual.delete();
+            
+            //Renomear p arquivo temporário
+            arquivoTemp.renameTo(arquivoAtual);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
    public static void atualizar(PlanoDeSaude correto) {
        
        for (PlanoDeSaude e : planos) {
-           if(correto.getOperadora() == e.getOperadora()) {
-               int posicao = planos.indexOf(e);
-              planos.set(posicao, correto);
+           if(e.getCodigo().equals(correto.getCodigo())) {
+              planos.set(planos.indexOf(e),correto);
+              break;
            }
        }
+       atualizarArquivo();
    }
 
    //Criar lista inicial de especialidades
