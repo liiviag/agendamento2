@@ -28,16 +28,16 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        planoPanel = new javax.swing.JPanel();
         buttonAdicionar = new javax.swing.JButton();
         buttonAtualizar = new javax.swing.JButton();
         buttonExcluir = new javax.swing.JButton();
         scroolPlanos = new javax.swing.JScrollPane();
         tablePlanos = new javax.swing.JTable();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Planos de Saúde"));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 330));
-        jPanel1.setLayout(null);
+        planoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Planos de Saúde"));
+        planoPanel.setPreferredSize(new java.awt.Dimension(800, 330));
+        planoPanel.setLayout(null);
 
         buttonAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/escrevendo.png"))); // NOI18N
         buttonAdicionar.setToolTipText("Editar");
@@ -46,7 +46,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
                 buttonAdicionarActionPerformed(evt);
             }
         });
-        jPanel1.add(buttonAdicionar);
+        planoPanel.add(buttonAdicionar);
         buttonAdicionar.setBounds(610, 250, 70, 70);
 
         buttonAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/atualizar (1).png"))); // NOI18N
@@ -56,7 +56,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
                 buttonAtualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(buttonAtualizar);
+        planoPanel.add(buttonAtualizar);
         buttonAtualizar.setBounds(690, 250, 70, 70);
 
         buttonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/lixeira-de-reciclagem.png"))); // NOI18N
@@ -66,7 +66,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
                 buttonExcluirActionPerformed(evt);
             }
         });
-        jPanel1.add(buttonExcluir);
+        planoPanel.add(buttonExcluir);
         buttonExcluir.setBounds(530, 250, 70, 70);
 
         tablePlanos.setBackground(new java.awt.Color(204, 204, 204));
@@ -83,7 +83,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
         ));
         scroolPlanos.setViewportView(tablePlanos);
 
-        jPanel1.add(scroolPlanos);
+        planoPanel.add(scroolPlanos);
         scroolPlanos.setBounds(40, 20, 710, 220);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -94,7 +94,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(planoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -103,7 +103,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(planoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -217,7 +217,7 @@ public class PlanoSaudePanel extends javax.swing.JPanel {
     private javax.swing.JButton buttonAdicionar;
     private javax.swing.JButton buttonAtualizar;
     private javax.swing.JButton buttonExcluir;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel planoPanel;
     private javax.swing.JScrollPane scroolPlanos;
     private javax.swing.JTable tablePlanos;
     // End of variables declaration//GEN-END:variables

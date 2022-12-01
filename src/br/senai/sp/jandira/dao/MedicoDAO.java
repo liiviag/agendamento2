@@ -107,6 +107,19 @@ public class MedicoDAO {
         
         atualizarArquivo();
     }
+    
+    public static ArrayList<Especialidade> separarEspecialidade(String linha) {
+        String[] vetor = linha.split("_");
+        int codigoEsp = 6;
+        
+        ArrayList<Especialidade> especialidades = new ArrayList<>();
+        
+        while(vetor.length > codigoEsp) {
+            especialidades.add(EspecialidadeDAO.getEspecialidade(Integer.valueOf(vetor[codigoEsp])));
+            codigoEsp++;
+        }
+        return especialidades;
+    }
         public static void criarListaDeMedico () {
         try {
             BufferedReader leitor = Files.newBufferedReader(PATH);
@@ -129,7 +142,7 @@ public class MedicoDAO {
                         LocalDate.of(Integer.parseInt(data[2]),
                                 Integer.parseInt(data[1]),
                                 Integer.parseInt(data[0])),
-                        Integer.valueOf(vetor[0]));
+                        Integer.valueOf(vetor[0]), separarEspecialidade(linha));
 
                 //Guardar a especialidade na linha
                 medicos.add(e);
@@ -148,6 +161,7 @@ public class MedicoDAO {
         }
     }
    
+    
          public static DefaultTableModel getMedicoModel() {
 
         String[] titulos = {"CÓDIGO", "NOME", "ESPECIALIDADE", "TELEFONE", "EMAIL", "CRM", "DATA NASCIMENTO"};
@@ -158,7 +172,7 @@ public class MedicoDAO {
         for (Medico e : medicos) {
             dados[i][0] = e.getCodigo().toString();
             dados[i][1] = e.getNome();
-            dados[i][2] = Arrays.toString(e.getEspecialidade());
+            //dados[i][2] = Arrays.toString(e.getEspecialidade());
             dados[i][3] = e.getTelefone();
             dados[i][4] = e.getEmail();
             dados[i][5] = e.getCRM();

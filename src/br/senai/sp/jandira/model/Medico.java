@@ -1,13 +1,15 @@
 package br.senai.sp.jandira.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Set;
 
 public class Medico {
 
         private static int contador;
         private Integer codigo;
 	private String nome;
-	private Especialidade[] especialidade;
+	private ArrayList<Especialidade> especialidade;
 	private String telefone;
 	private String email;
 	private String crm;
@@ -20,30 +22,31 @@ public class Medico {
 	}
 
 	public Medico(String nome, 
-                Especialidade[] especialidade, 
                 String telefone,
-                String email, String crm) {
+                String email, 
+                String crm,
+                LocalDate dataNascimento, ArrayList <Especialidade> especalidade) {
             this.nome = nome;
-            this.especialidade = especialidade;
             this.telefone = telefone;
             this.email = email;
             this.crm = crm;
             this.dataNascimento = dataNascimento;
+            this.especialidade = especialidade;
             this.codigo = codigo;
             gerarCodigo();
                      
 	}
         
-        public Medico(String nome, 
-                Especialidade[] especialidade, 
+        public Medico(String nome,
                 String telefone,
-                String email, String crm, Integer codigo) {
+                String email, String crm, 
+                LocalDate dataNascimento, Integer codigo, ArrayList<Especialidade> especialidade) {
             this.nome = nome;
-            this.especialidade = especialidade;
             this.telefone = telefone;
             this.email = email;
             this.crm = crm;
             this.dataNascimento = dataNascimento;
+            this.especialidade = especialidade;
             this.codigo = codigo;
             this.contador = codigo;
         }
@@ -53,12 +56,16 @@ public class Medico {
             this.codigo = contador;
         }
 
-	public Especialidade[] getEspecialidade() {
-		return especialidade;
-	}
+         public ArrayList getEspecialidade() {
+            return especialidade;
+        }
 
+        public void setEspecialidade(ArrayList especialidade) {
+             this.especialidade = especialidade;
+         }
+       
         //                 \\
-
+        
          public String getNome() {
              return nome;
         }
@@ -82,10 +89,6 @@ public class Medico {
         public static void setContador(int contador) {
         Medico.contador = contador;
         }
- 
-	public void setEspecialidade(Especialidade[] especialidade) {
-		this.especialidade = especialidade;
-	}
 
 	public String getTelefone() {
 		return telefone;
