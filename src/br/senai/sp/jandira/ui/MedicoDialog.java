@@ -1,6 +1,7 @@
 package br.senai.sp.jandira.ui;
 import br.senai.sp.jandira.dao.EspecialidadeDAO;
 import br.senai.sp.jandira.dao.MedicoDAO;
+import br.senai.sp.jandira.model.Especialidade;
 import br.senai.sp.jandira.model.Medico;
 import br.senai.sp.jandira.model.OperacaoEnum;
 import java.time.LocalDate;
@@ -10,6 +11,7 @@ import javax.swing.JTextField;
 
 public class MedicoDialog extends javax.swing.JDialog {
 
+            
     private Medico medicos;
     private OperacaoEnum operacao;
 
@@ -224,15 +226,12 @@ public class MedicoDialog extends javax.swing.JDialog {
         jPanel2.add(jLabelEspecMedico);
         jLabelEspecMedico.setBounds(320, 180, 210, 17);
 
-        jListEspecialidadeMedico.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        jListEspecialidadeMedico.setCellRenderer(null);
+        jListEspecialidadeMedico.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPaneEspecialidadeMedico.setViewportView(jListEspecialidadeMedico);
 
         jPanel2.add(jScrollPaneEspecialidadeMedico);
-        jScrollPaneEspecialidadeMedico.setBounds(340, 210, 160, 146);
+        jScrollPaneEspecialidadeMedico.setBounds(340, 210, 160, 130);
 
         FormattedTextFieldData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,7 +259,6 @@ public class MedicoDialog extends javax.swing.JDialog {
 
         jButton2.setBackground(new java.awt.Color(102, 255, 102));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/img/seta-direita (1).png"))); // NOI18N
-        jButton2.setActionCommand("");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -294,7 +292,7 @@ public class MedicoDialog extends javax.swing.JDialog {
         getContentPane().add(jButtonSalvar);
         jButtonSalvar.setBounds(460, 510, 100, 23);
 
-        pack();
+        setBounds(0, 0, 664, 610);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMedicoActionPerformed
@@ -432,7 +430,7 @@ public class MedicoDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelMedico;
     private javax.swing.JLabel jLabelTelefone;
     private javax.swing.JLabel jLabelimg;
-    private javax.swing.JList<String> jListEspecialidadeMedico;
+    private javax.swing.JList<Especialidade> jListEspecialidadeMedico;
     private javax.swing.JList<Especialidade> jListEspecialidades;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
