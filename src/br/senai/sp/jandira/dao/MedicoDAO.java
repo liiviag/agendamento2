@@ -15,6 +15,7 @@ import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -27,7 +28,7 @@ public class MedicoDAO {
     private final static Path PATH_TEMP = Paths.get(URL_TEMP);
     
     private static ArrayList<Medico> medicos = new ArrayList<>();
-    public static TableModel getMedicoModel;
+    
     
     public static void gravar(Medico e) {
         medicos.add(e);
@@ -109,7 +110,7 @@ public class MedicoDAO {
     }
     
     public static ArrayList<Especialidade> separarEspecialidade(String linha) {
-        String[] vetor = linha.split("_");
+        String[] vetor = linha.split(";");
         int codigoEsp = 6;
         
         ArrayList<Especialidade> especialidades = new ArrayList<>();
@@ -130,8 +131,6 @@ public class MedicoDAO {
                 
             String[] vetor = linha.split(";");
             
-            String[] data = vetor[3].split("/");
-            
             Especialidade especialidade = new Especialidade();
                 
             Medico e = new Medico(
@@ -139,9 +138,7 @@ public class MedicoDAO {
                         vetor[2],
                         vetor[4],
                         vetor[5],
-                        LocalDate.of(Integer.parseInt(data[2]),
-                                Integer.parseInt(data[1]),
-                                Integer.parseInt(data[0])),
+                        LocalDate.parse(vetor[3]),
                         Integer.valueOf(vetor[0]), separarEspecialidade(linha));
 
                 //Guardar a especialidade na linha
@@ -161,22 +158,39 @@ public class MedicoDAO {
         }
     }
    
+        public static DefaultListModel<Especialidade> getEspModel() {
+            
+            DefaultListModel<Especialidade> especialidadesLista = new DefaultListModel<Especialidade>();
+            
+            try {
+                BufferedReader leitor = Files.newBufferedReader(PATH);
+                
+                String linha = leitor.readLine();
+                
+                for (Especialidade e : separarEspecialidade(linha)) {
+                    especialidadesLista.addElement(e);
+                }
+                   leitor.close();
+               
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro");
+            }
+            
+            return especialidadesLista;
+        }
     
          public static DefaultTableModel getMedicoModel() {
 
-        String[] titulos = {"CÓDIGO", "NOME", "ESPECIALIDADE", "TELEFONE", "EMAIL", "CRM", "DATA NASCIMENTO"};
+        String[] titulos = {"CÓDIGO", "NOME", "TELEFONE", "CRM"};
 
-        String[][] dados = new String[medicos.size()][7];
+        String[][] dados = new String[medicos.size()][4];
 
         int i = 0;
         for (Medico e : medicos) {
             dados[i][0] = e.getCodigo().toString();
             dados[i][1] = e.getNome();
-            //dados[i][2] = Arrays.toString(e.getEspecialidade());
-            dados[i][3] = e.getTelefone();
-            dados[i][4] = e.getEmail();
-            dados[i][5] = e.getCRM();
-            dados[i][6] = e.getDataNascimento().toString();
+            dados[i][2] = e.getTelefone();
+            dados[i][3] = e.getCRM();
             
             i++;
         }

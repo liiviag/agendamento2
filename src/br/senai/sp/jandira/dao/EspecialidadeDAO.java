@@ -24,9 +24,6 @@ public class EspecialidadeDAO {
     private final static Path PATH_TEMP = Paths.get(URL_TEMP);
 
     private static ArrayList<Especialidade> especialidades = new ArrayList<>();
-    public static TableModel getEspecialidadesModel;
-
-     
 
     public static void gravar(Especialidade e) {
         especialidades.add(e);
@@ -54,7 +51,7 @@ public class EspecialidadeDAO {
 
     public static Especialidade getEspecialidade(Integer codigo) {
         for (Especialidade e : especialidades) {
-            if (e.getCodigo().equals(codigo)) {
+            if (e.getCodigo() == codigo) {
                 return e;
             }
         }
@@ -179,6 +176,7 @@ public class EspecialidadeDAO {
 
         return model;
     }
+    
     public static DefaultListModel<Especialidade> preencherEspecialidade() {
         DefaultListModel<Especialidade> listarEspecialidade = new DefaultListModel<>();
         

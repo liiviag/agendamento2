@@ -193,10 +193,9 @@ public class MedicoPanel extends javax.swing.JPanel {
         
         //Tamanho das colunas
         tableMedicos.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        tableMedicos.getColumnModel().getColumn(0).setPreferredWidth(80);
-        tableMedicos.getColumnModel().getColumn(1).setPreferredWidth(160);
-        tableMedicos.getColumnModel().getColumn(2).setPreferredWidth(160);
-        tableMedicos.getColumnModel().getColumn(3).setPreferredWidth(160);
-        tableMedicos.getColumnModel().getColumn(4).setPreferredWidth(160);
+        tableMedicos.getColumnModel().getColumn(0).setPreferredWidth(170);
+        tableMedicos.getColumnModel().getColumn(1).setPreferredWidth(180);
+        tableMedicos.getColumnModel().getColumn(2).setPreferredWidth(180);
+        tableMedicos.getColumnModel().getColumn(3).setPreferredWidth(180);
     }
 }
